@@ -96,7 +96,7 @@
     "log4js": "^6.1.2",
     "node-fetch": "^2.6.1",
     "node-persist": "^3.1.0",
-    "ora": "^4.0.3",
+    "ora": "^6.0.1",
     "read-installed": "~4.0.3",
     "spdx-license-ids": "^3.0.5",
     "ssri": "^8.0.1",
