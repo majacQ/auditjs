@@ -10,5 +10,7 @@ Sonatype internal people:
 External contributors:
 
 - [@francois-roget](https://github.com/francois-roget) (François Roget) for [Ingenico Group](https://github.com/ingenico-group)
+- [@tomhooijenga](https://github.com/tomhooijenga) (Tom Hooijenga)
+- [@lostunicorn](https://github.com/lostunicorn) (Jeroen De Wachter)
 
 Possibly You!

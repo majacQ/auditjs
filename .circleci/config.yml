@@ -1,40 +1,48 @@
 version: 2.1
+
+orbs:
+  slack: circleci/slack@4.12.5
+
+executors:
+  node_executor:
+    docker:
+      - image: cimg/node:20.16
+
 jobs:
   build:
     working_directory: ~/auditjs
-    docker:
-      - image: circleci/node:12.14.0
+    executor: node_executor
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: install-npm-wee
-          command: npm ci install
+          name: Install Dependencies
+          command: yarn install
       - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - ./node_modules
+            - ~/.cache/yarn
       - run:
           name: Lint auditjs
-          command: npm run lint
+          command: yarn lint
       - run:
           name: build
-          command: npm run build
+          command: yarn build
       - run:
           name: make test reports directory
           command: mkdir reports
       - run:
           name: test
-          command: npm run test-ci
-      - run:
-          name: code coverage
-          command: |
-            npm run coverage
-            npm run generate-coverage-report
+          command: yarn test-ci
+#      - run:
+#          name: code coverage
+#          command: |
+#            yarn coverage
+#            yarn generate-coverage-report
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -44,11 +52,15 @@ jobs:
           prefix: tests
       - run:
           name: dogfood scan
-          command: npm run start -- ossi
+          command: yarn run start ossi --whitelist dev-auditjs.json
+#      - slack/notify:
+#          event: fail
+#          template: basic_fail_1
+#          branch_pattern: main
+
   release:
     working_directory: ~/auditjs
-    docker:
-      - image: circleci/node:12.14.0
+    executor: node_executor
     steps:
       - checkout
       - run:
@@ -56,27 +68,34 @@ jobs:
           command: sudo chown -R circleci:circleci /usr/local/lib && sudo chown -R circleci:circleci /usr/local/bin
       - run:
           name: Install dependencies
-          command: npm install
+          command: yarn install
       - run:
           name: Build auditjs
-          command: npm run build
+          command: yarn build
       - run:
           name: Install publishing packages
-          command: npm install -g semantic-release@beta @semantic-release/changelog @semantic-release/git@beta @semantic-release/npm@beta
+          command: yarn global add semantic-release@latest @semantic-release/changelog @semantic-release/git@latest @semantic-release/npm@latest
       - run:
           name: Attempt publish
-          command: npx semantic-release -d
+          command: yarn exec semantic-release
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
 
 workflows:
   version: 2.1
   build_and_release:
     jobs:
       - build
+#      - build:
+#          context: slack_community_oss_fun
       - release:
           filters:
             branches:
               only: main
-          context: auditjs
+          context:
+            - auditjs
+            - slack_community_oss_fun
           requires:
             - build
 
@@ -88,4 +107,5 @@ workflows:
             branches:
               only: main
     jobs:
-      - build
+      - build:
+          context: slack_community_oss_fun

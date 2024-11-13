@@ -1,3 +1,159 @@
+## [4.0.46](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.45...v4.0.46) (2024-11-13)
+
+
+### Bug Fixes
+
+* latest mock-fs fixes failing unit tests after other updates, resolve CVE-2024-21538 in cross-spawn 7.0.3 ([7a66cbb](https://github.com/sonatype-nexus-community/auditjs/commit/7a66cbb5f7bd88e2ee6ccff70cb5ca2c88ee4846))
+* resolve CVE-2024-21538 in cross-spawn : 7.0.3 ([4ade2a7](https://github.com/sonatype-nexus-community/auditjs/commit/4ade2a7fd575bb7adf33191e14ab9ee7ef2786a9))
+* resolve CVE-2024-21538 in cross-spawn : 7.0.3 (update CI node version) ([d3378f5](https://github.com/sonatype-nexus-community/auditjs/commit/d3378f5b0c82f201558a74dc1496540f2306c90a))
+* resolve CVE-2024-4068 in braces : 3.0.2 ([d065149](https://github.com/sonatype-nexus-community/auditjs/commit/d06514982d97f9f5258b98e1a6f5731e899b79c4))
+* update CI 'release' target to use latest semantic-release, now that we use newer node version ([e2ac821](https://github.com/sonatype-nexus-community/auditjs/commit/e2ac821e5934a40a8d9f71666d7ca77f77a9984f))
+
+## [4.0.45](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.44...v4.0.45) (2024-01-17)
+
+
+### Bug Fixes
+
+* use semantic-release version that works with node 18 (newer node causes  build errors). ([a122b0e](https://github.com/sonatype-nexus-community/auditjs/commit/a122b0e828066d13c9f39e300ee5fe7df8023bc6))
+
+## [4.0.44](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.43...v4.0.44) (2024-01-10)
+
+
+### Bug Fixes
+
+* minor change to trigger release of PR# 276 ([f676f91](https://github.com/sonatype-nexus-community/auditjs/commit/f676f91a4a96b44f95d2e050acbe0f7e0fdd6943))
+
+## [4.0.43](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.42...v4.0.43) (2023-12-13)
+
+
+### Bug Fixes
+
+* minor change to trigger release of fix for sonatype-2023-4801 ([032b20a](https://github.com/sonatype-nexus-community/auditjs/commit/032b20a36882fc77ed65134b3b79e1c1d428d42e))
+
+## [4.0.42](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.41...v4.0.42) (2023-12-13)
+
+
+### Bug Fixes
+
+* error TS2688: Cannot find type definition file for 'node'. ([#274](https://github.com/sonatype-nexus-community/auditjs/issues/274)) ([2d79b85](https://github.com/sonatype-nexus-community/auditjs/commit/2d79b850bbee6f231518f562b3d506794d206672))
+
+## [4.0.41](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.40...v4.0.41) (2023-07-12)
+
+
+### Bug Fixes
+
+* sonatype-2022-3677 in node-fetch 2.6.7 ([d1b15ab](https://github.com/sonatype-nexus-community/auditjs/commit/d1b15abaec2a4626bec5a6b73207cc2e47837a6e))
+
+## [4.0.40](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.39...v4.0.40) (2023-06-22)
+
+
+### Bug Fixes
+
+* CVE-2022-25883 in semver : 5.7.1 ([51d1dd0](https://github.com/sonatype-nexus-community/auditjs/commit/51d1dd00b04702f5de258ba6031001cbc4639cc4))
+
+## [4.0.39](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.38...v4.0.39) (2022-10-31)
+
+
+### Bug Fixes
+
+* CVE-2022-39353 in @xmldom/xmldom : 0.8.3 ([73b65bd](https://github.com/sonatype-nexus-community/auditjs/commit/73b65bd186e08091840114124694f1f456c27714))
+
+## [4.0.38](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.37...v4.0.38) (2022-10-13)
+
+
+### Bug Fixes
+
+* CVE-2022-37616 in @xmldom/xmldom : 0.7.2 ([5269bef](https://github.com/sonatype-nexus-community/auditjs/commit/5269bef10e5bebb7b0e8d342c7156bc47674a4ab))
+
+## [4.0.37](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.36...v4.0.37) (2022-04-20)
+
+
+### Bug Fixes
+
+* security(npm): lock colors library to 1.4.0 ([#251](https://github.com/sonatype-nexus-community/auditjs/issues/251)) ([36ae07f](https://github.com/sonatype-nexus-community/auditjs/commit/36ae07fa0588bb77436c06f6d3fa9cc627062628)), closes [#250](https://github.com/sonatype-nexus-community/auditjs/issues/250)
+
+## [4.0.36](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.35...v4.0.36) (2022-02-08)
+
+
+### Bug Fixes
+
+* sonatype-2021-4879 in minimatch : 3.0.4 ([384a99f](https://github.com/sonatype-nexus-community/auditjs/commit/384a99f4ec56dd1f4ad811d1342f06ea57149911))
+
+## [4.0.35](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.34...v4.0.35) (2022-01-20)
+
+
+### Bug Fixes
+
+* CVE-2022-21704 in log4js : 6.3.0 ([b7f1548](https://github.com/sonatype-nexus-community/auditjs/commit/b7f1548527d4866a5dad7cdb252230f4975bd37b))
+
+## [4.0.34](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.33...v4.0.34) (2022-01-20)
+
+
+### Bug Fixes
+
+* CVE-2022-0235 in node-fetch : 2.6.1 ([cde4677](https://github.com/sonatype-nexus-community/auditjs/commit/cde4677621066f1087b1111f8bdc233c3ecdfb7d))
+
+## [4.0.33](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.32...v4.0.33) (2021-10-25)
+
+
+### Bug Fixes
+
+* Error message formatting ([#248](https://github.com/sonatype-nexus-community/auditjs/issues/248)) ([c8acb04](https://github.com/sonatype-nexus-community/auditjs/commit/c8acb04de235a79686e66d97231c72fb7a961563)), closes [#206](https://github.com/sonatype-nexus-community/auditjs/issues/206)
+
+## [4.0.32](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.31...v4.0.32) (2021-09-16)
+
+
+### Bug Fixes
+
+* revert fix for SONATYPE-2021-1169, breaks eslint. needs more work ([a7428e2](https://github.com/sonatype-nexus-community/auditjs/commit/a7428e22d29a62dfdb50dd812fd472f16b598260))
+* SONATYPE-2021-1169 ([74abe3c](https://github.com/sonatype-nexus-community/auditjs/commit/74abe3cba69ab75deb756e595ccb6394e2d6a405))
+
+## [4.0.31](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.30...v4.0.31) (2021-09-07)
+
+
+### Bug Fixes
+
+* Make caching class return undefined if property does not exist ([#247](https://github.com/sonatype-nexus-community/auditjs/issues/247)) ([8e3b3ad](https://github.com/sonatype-nexus-community/auditjs/commit/8e3b3ad2daaf6eee5a5caf7bcd63cd9fe555d07e))
+* use newer node version in CI release process, required to run semantic-release. ([589e0ce](https://github.com/sonatype-nexus-community/auditjs/commit/589e0cee02a260bde777edef3acd504221896f4f))
+* use newly published @xmldom/xmldom package. fixes [#243](https://github.com/sonatype-nexus-community/auditjs/issues/243) ([9f8b646](https://github.com/sonatype-nexus-community/auditjs/commit/9f8b64689d5cc16591a37065c79c6a82b764040b))
+
+## [4.0.30](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.29...v4.0.30) (2021-08-09)
+
+
+### Bug Fixes
+
+* CVE-2021-32796, will change when xmldom@0.7.0 is published on npm ([#242](https://github.com/sonatype-nexus-community/auditjs/issues/242)) ([a6c8e32](https://github.com/sonatype-nexus-community/auditjs/commit/a6c8e327015025b65f681f25b3d31c7d695733a1))
+
+## [4.0.29](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.28...v4.0.29) (2021-08-05)
+
+
+### Bug Fixes
+
+* Initial move to yarn ([#241](https://github.com/sonatype-nexus-community/auditjs/issues/241)) ([88b063f](https://github.com/sonatype-nexus-community/auditjs/commit/88b063f66a3998d175e144ef162b550fb892ce6c))
+
+## [4.0.28](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.27...v4.0.28) (2021-08-03)
+
+
+### Bug Fixes
+
+* workaround to fix issue [#239](https://github.com/sonatype-nexus-community/auditjs/issues/239). may convert to yarn later ([2056567](https://github.com/sonatype-nexus-community/auditjs/commit/2056567345da061b6823e4b715dfbdc8e4f03eca))
+
+## [4.0.27](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.26...v4.0.27) (2021-07-30)
+
+
+### Bug Fixes
+
+* switch to force-resolutions to avoid error when running on a project without a package-lock.json ([a07ae78](https://github.com/sonatype-nexus-community/auditjs/commit/a07ae78f1c0bdcbe606754aa2288dd06150c855d))
+
+## [4.0.26](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.25...v4.0.26) (2021-07-29)
+
+
+### Bug Fixes
+
+* avoid ab-end in Application.spec.ts test by using process.exitCode instead of process.exit(). @TNeer rules! ([1e63108](https://github.com/sonatype-nexus-community/auditjs/commit/1e631088da66d45e72aa4c4c90c3ace1560439f1))
+* CWE-20: Improper Input Validation in y18n version 5.0.5 ([1b6a7cb](https://github.com/sonatype-nexus-community/auditjs/commit/1b6a7cbd191433df4bfb6dd992bb6773b16f5604))
+* the releases must flow. remove semantic-release dry-run flag ([9bb8efb](https://github.com/sonatype-nexus-community/auditjs/commit/9bb8efb8308dbae863a63066af61bbd767cec829))
+
 ## [4.0.25](https://github.com/sonatype-nexus-community/auditjs/compare/v4.0.24...v4.0.25) (2021-03-12)
 
 

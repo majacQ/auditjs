@@ -16,35 +16,28 @@
 @Library(['private-pipeline-library', 'jenkins-shared']) _
 
 dockerizedBuildPipeline(
-  buildImageId: "${sonatypeDockerRegistryId()}/cdi/node-12:1",
+  buildImageId: "${sonatypeDockerRegistryId()}/cdi/node-16",
   deployBranch: 'main',
-  prepare: {
-    githubStatusUpdate('pending')
-  },
   buildAndTest: {
     sh '''
-    npm i
-    npm run build
-    npm run test-ci
+    yarn
+    yarn build
+    yarn test-ci
     # prep for scan of only production dependencies
     rm -rf node_modules
-    npm install --production
+    yarn install --production --frozen-lockfile
     '''
   },
   vulnerabilityScan: {
     withDockerImage(env.DOCKER_IMAGE_ID, {
-      withCredentials([usernamePassword(credentialsId: 'policy.s integration account',
+      withCredentials([usernamePassword(credentialsId: 'jenkins-saas-service-acct',
         usernameVariable: 'IQ_USERNAME', passwordVariable: 'IQ_PASSWORD')]) {
-        sh 'npx auditjs@latest iq -x -a auditjs -s stage-release -u $IQ_USERNAME -p $IQ_PASSWORD -h https://policy.ci.sonatype.dev'
+        sh 'npx auditjs@latest iq -x -a auditjs -s release -u $IQ_USERNAME -p $IQ_PASSWORD -h https://sonatype.sonatype.app/platform'
       }
     })
   },
   testResults: [ 'reports/test-results.xml' ],
-  onSuccess: {
-    githubStatusUpdate('success')
-  },
   onFailure: {
-    githubStatusUpdate('failure')
     notifyChat(currentBuild: currentBuild, env: env, room: 'community-oss-fun')
     sendEmailNotification(currentBuild, env, [], 'community-group@sonatype.com')
   }

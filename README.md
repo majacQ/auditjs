@@ -101,6 +101,7 @@ Options:
   --help           Show help                                           [boolean]
   --user, -u       Specify OSS Index username                           [string]
   --password, -p   Specify OSS Index password or token                  [string]
+  --cache, -c      Specify path to use as a cache location              [string]
   --quiet, -q      Only print out vulnerable dependencies              [boolean]
   --json, -j       Set output to JSON                                  [boolean]
   --xml, -x        Set output to JUnit XML format                      [boolean]
@@ -222,7 +223,7 @@ An example snippet from a `package.json`:
   "keywords": [
 ```
 
-Now that we've added a `scan` script, you can run `npm run scan` and your project will invoke `auditjs` and scan your dependencies. This can be handy for local work, or for if you want to run `auditjs` in CI/CD without installing it globally.
+Now that we've added a `scan` script, you can run `yarn run scan` and your project will invoke `auditjs` and scan your dependencies. This can be handy for local work, or for if you want to run `auditjs` in CI/CD without installing it globally.
 
 Note: these reference implementations are applicable to running an IQ scan as well. The caveat is that the config for the IQ url and auth needs to either be in the home directory of the user running the job, or stored as (preferably secret) environmental variables.
 
@@ -269,7 +270,7 @@ The file should look like:
 }
 ```
 
-The only field that actually matters is `id` and that is the ID you recieve from OSS Index for a vulnerability. You can add fields such as `reason` so that you later can understand why you whitelisted a vulnerability.
+The only field that actually matters is `id` and that is the ID you receive from OSS Index for a vulnerability. You can add fields such as `reason` so that you later can understand why you whitelisted a vulnerability.
 
 Any `id` that is whitelisted will be squelched from the results, and not cause a failure.
 
@@ -399,14 +400,18 @@ fix: Adds insecure flag, implements (#213)
 
 Remember:
 
-- If you are a Sonatype customer, you may file Sonatype support tickets related to `AuditJS` support in regard to this project
-  - We suggest you file issues here on GitHub as well, so that the community can pitch in
-- If you are not a Sonatype customer, Do NOT file Sonatype support tickets related to nancy support in regard to this project, file an issue here on GitHub
+It is worth noting that this is **NOT SUPPORTED** by Sonatype, and is a contribution of ours to the open source
+community (read: you!)
 
-Have fun creating and using `AuditJS` and the [Sonatype OSS Index](https://ossindex.sonatype.org/), we are glad to have you here!
+* Use this contribution at the risk tolerance that you have
+* Do NOT file Sonatype support tickets related to `ossindex-lib`
+* DO file issues here on GitHub, so that the community can pitch in
+
+Phew, that was easier than I thought. Last but not least of all - have fun!
 
 ## Getting help
 
 Looking to contribute to our code but need some help? There's a few ways to get information:
 
 - Chat with us on the [AuditJS Gitter](https://gitter.im/sonatype-nexus-community/auditjs) or the [Nexus-Developers Gitter](https://gitter.im/sonatype/nexus-developers)
+
